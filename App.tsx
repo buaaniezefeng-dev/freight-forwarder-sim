@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { GameStage, GameState, INITIAL_STATS, Choice } from './types';
-import { STAGE_TITLES, MAX_STAT, MIN_STAT } from './constants';
+import { MAX_STAT, MIN_STAT } from './constants';
 import { AVAILABLE_CASES } from './services/gameData';
 import { generateScenario } from './services/geminiService';
 import { StatsDisplay } from './components/StatsDisplay';
 import { GameScene } from './components/GameScene';
 import { SummaryScreen } from './components/SummaryScreen';
-import { Loader2, Ship, PlayCircle, BookOpen, AlertTriangle, Anchor } from 'lucide-react';
+import { Loader2, Ship, PlayCircle, AlertTriangle } from 'lucide-react';
 
 const App: React.FC = () => {
   const [gameState, setGameState] = useState<GameState>({
