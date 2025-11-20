@@ -6,7 +6,7 @@ import { generateScenario } from './services/geminiService';
 import { StatsDisplay } from './components/StatsDisplay';
 import { GameScene } from './components/GameScene';
 import { SummaryScreen } from './components/SummaryScreen';
-import { Loader2, Ship, PlayCircle, AlertTriangle, BookOpen, Trophy } from 'lucide-react';
+import { Loader2, Ship, PlayCircle, BookOpen, Trophy } from 'lucide-react';
 
 const App: React.FC = () => {
   const [gameState, setGameState] = useState<GameState>({
