@@ -13,7 +13,7 @@ const delta = (trust: number, cost: number, comm: number) => ({ trust, costEffic
 export const AVAILABLE_CASES: CaseDefinition[] = [
   {
     id: "tutorial",
-    title: "实训课程：全流程海运操作",
+    title: "新手必修：全流程海运操作",
     description: "从零开始处理一票出口德国的精密电子产品。包含20个标准操作环节，适合新手熟悉全套流程。",
     difficulty: "Easy",
     tags: ["标准流程", "出口", "精密仪器"],
