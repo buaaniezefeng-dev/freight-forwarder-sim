@@ -26,10 +26,10 @@ export const STAGE_TITLES: Record<GameStage, string> = {
   [GameStage.DELIVERY]: "20. 最终交付 (Final Delivery)",
 
   // Generic Case Stages
-  [GameStage.CASE_SCENARIO_1]: "关键任务一：方案选择",
-  [GameStage.CASE_SCENARIO_2]: "关键任务二：费用与执行",
-  [GameStage.CASE_SCENARIO_3]: "关键任务三：长期维护与收尾",
-  [GameStage.CASE_SCENARIO_4]: "额外挑战",
+  [GameStage.CASE_SCENARIO_1]: "关键任务一：方案与决策",
+  [GameStage.CASE_SCENARIO_2]: "关键任务二：执行与应对",
+  [GameStage.CASE_SCENARIO_3]: "关键任务三：收尾与维护",
+  [GameStage.CASE_SCENARIO_4]: "额外挑战：合规与补救",
 
   [GameStage.SUMMARY]: "结案报告 (Mission Report)"
 };

@@ -28,120 +28,345 @@ export const AVAILABLE_CASES: CaseDefinition[] = [
   },
   {
     id: "case_1",
-    title: "案例 1：铁路转空运的费用争议",
-    description: "真实案例改编。货物因单证问题被扣，需要退运并转空运。如何处理由此产生的巨额费用争议，并挽回大客户？",
+    title: "案例 1：铁路转空运争议",
+    description: "中欧班列单证缺失导致货物滞留。在巨额滞留费和转运成本面前，如何处理由于操作失误引发的费用争议？",
     difficulty: "Hard",
-    tags: ["危机公关", "多式联运", "索赔谈判"],
+    tags: ["多式联运", "危机公关", "索赔谈判"],
+    flow: [GameStage.CASE_SCENARIO_1, GameStage.CASE_SCENARIO_2, GameStage.CASE_SCENARIO_3, GameStage.SUMMARY]
+  },
+  {
+    id: "case_2",
+    title: "案例 2：手机首发空运急件",
+    description: "某知名手机品牌新品发布，工厂生产延误。你需要安排“Next Flight Out”紧急空运，在天价包机费和违约风险中博弈。",
+    difficulty: "Medium",
+    tags: ["空运", "包机", "时效管理"],
+    flow: [GameStage.CASE_SCENARIO_1, GameStage.CASE_SCENARIO_2, GameStage.CASE_SCENARIO_3, GameStage.SUMMARY]
+  },
+  {
+    id: "case_3",
+    title: "案例 3：隐瞒危险品申报",
+    description: "客户将锂电池产品作为普通货物订舱。面对高额运费差价的诱惑和船舶起火的风险，你将如何抉择？",
+    difficulty: "Hard",
+    tags: ["危险品", "合规", "海事安全"],
+    flow: [GameStage.CASE_SCENARIO_1, GameStage.CASE_SCENARIO_2, GameStage.CASE_SCENARIO_3, GameStage.SUMMARY]
+  },
+  {
+    id: "case_4",
+    title: "案例 4：冷冻海鲜断电事故",
+    description: "发往日本的冷冻鳗鱼在码头因插头脱落解冻变质。船公司、码头、车队互相推诿，你需要依据温度记录仪定责。",
+    difficulty: "Hard",
+    tags: ["冷链物流", "货损理赔", "责任判定"],
     flow: [GameStage.CASE_SCENARIO_1, GameStage.CASE_SCENARIO_2, GameStage.CASE_SCENARIO_3, GameStage.SUMMARY]
   },
   {
     id: "case_5",
-    title: "案例 5：突发港口拥堵的货运重排",
-    description: "宁波港因台风拥堵，服装客户面临违约风险。在等待、转港、空运之间做出最优决策。",
+    title: "案例 5：港口拥堵与不可抗力",
+    description: "宁波港台风拥堵，服装客户面临交期违约。是等待原船、陆运转港还是部分空运？",
     difficulty: "Medium",
-    tags: ["突发事件", "成本计算", "时效管理"],
+    tags: ["突发事件", "方案优化", "调度"],
+    flow: [GameStage.CASE_SCENARIO_1, GameStage.CASE_SCENARIO_2, GameStage.CASE_SCENARIO_3, GameStage.SUMMARY]
+  },
+  {
+    id: "case_6",
+    title: "案例 6：信用证倒签提单陷阱",
+    description: "货物赶不上信用证规定的最晚装船期，工厂请求你“帮忙”倒签提单日期。这是行业潜规则还是诈骗红线？",
+    difficulty: "Hard",
+    tags: ["信用证", "单证欺诈", "法律风险"],
+    flow: [GameStage.CASE_SCENARIO_1, GameStage.CASE_SCENARIO_2, GameStage.CASE_SCENARIO_3, GameStage.SUMMARY]
+  },
+  {
+    id: "case_7",
+    title: "案例 7：超大件设备项目物流",
+    description: "出口一套大型石油管道设备，无法装入普通集装箱。涉及开顶柜(Open Top)操作、绑扎加固及道路勘测。",
+    difficulty: "Medium",
+    tags: ["特种柜", "OOG", "项目物流"],
+    flow: [GameStage.CASE_SCENARIO_1, GameStage.CASE_SCENARIO_2, GameStage.CASE_SCENARIO_3, GameStage.SUMMARY]
+  },
+  {
+    id: "case_8",
+    title: "案例 8：知识产权海关查验",
+    description: "出口鞋类产品被海关查验，怀疑侵犯某大牌商标权。客户声称是“自主品牌”，你需要协助处理海关扣货程序。",
+    difficulty: "Medium",
+    tags: ["海关查验", "知识产权", "法务"],
+    flow: [GameStage.CASE_SCENARIO_1, GameStage.CASE_SCENARIO_2, GameStage.CASE_SCENARIO_3, GameStage.SUMMARY]
+  },
+  {
+    id: "case_9",
+    title: "案例 9：亚马逊FBA头程税务",
+    description: "客户想把一批货发到美国亚马逊仓库，为了省税想低报价格并使用你的美国公司税号清关。风险与利润的博弈。",
+    difficulty: "Medium",
+    tags: ["跨境电商", "DDP", "税务合规"],
     flow: [GameStage.CASE_SCENARIO_1, GameStage.CASE_SCENARIO_2, GameStage.CASE_SCENARIO_3, GameStage.SUMMARY]
   },
   {
     id: "case_10",
-    title: "案例 10：精密仪器进口海关估价争议",
-    description: "海关认为申报价格过低，要求补税。你需要协助客户准备材料，处理行政复议，平衡税费成本。",
+    title: "案例 10：进口海关估价争议",
+    description: "进口精密仪器被海关质疑申报价格过低，面临补税罚款。协助客户准备价格磋商材料及行政复议。",
     difficulty: "Hard",
-    tags: ["进口清关", "海关估价", "合规"],
+    tags: ["进口清关", "海关估价", "行政复议"],
     flow: [GameStage.CASE_SCENARIO_1, GameStage.CASE_SCENARIO_2, GameStage.CASE_SCENARIO_3, GameStage.CASE_SCENARIO_4, GameStage.SUMMARY]
   }
 ];
 
 // --- SCENARIO DATA STORE ---
 
-// We use a nested structure or simply unique keys to differentiate scenarios. 
-// To keep it simple with the current architecture, we will map the Generic Stages (CASE_SCENARIO_X) 
-// dynamically based on the Case ID in the Service, OR we can flatten the DB here but use composite keys conceptually.
-// 
-// Limitation: The current app uses `GameStage` as the key. 
-// Strategy: The service will need to know which Case is active. 
-// Actually, to avoid massive refactoring of the Service, we will stick to the `GameStage` key,
-// BUT we will have to swap the content of `CASE_SCENARIO_1` based on the selected case in the App state.
-// Wait, that's complex. 
-// Better approach: `SCENARIO_DB` will be a function or a map where we look up `CaseID` then `Stage`.
-// But for now, let's make `SCENARIO_DB` export a function `getScenario(caseId, stage)`.
-
 export const getScenarioContent = (caseId: string, stage: GameStage) => {
-  // 1. Tutorial Case (Standard Flow)
-  if (caseId === 'tutorial') {
-    return TUTORIAL_DB[stage];
-  }
-  
-  // 2. Specific Cases
+  if (caseId === 'tutorial') return TUTORIAL_DB[stage];
   if (caseId === 'case_1') return CASE_1_DB[stage];
+  if (caseId === 'case_2') return CASE_2_DB[stage];
+  if (caseId === 'case_3') return CASE_3_DB[stage];
+  if (caseId === 'case_4') return CASE_4_DB[stage];
   if (caseId === 'case_5') return CASE_5_DB[stage];
+  if (caseId === 'case_6') return CASE_6_DB[stage];
+  if (caseId === 'case_7') return CASE_7_DB[stage];
+  if (caseId === 'case_8') return CASE_8_DB[stage];
+  if (caseId === 'case_9') return CASE_9_DB[stage];
   if (caseId === 'case_10') return CASE_10_DB[stage];
 
   return null;
 };
 
+// --- CASE DATABASES ---
 
 const CASE_1_DB: Record<string, any> = {
   [GameStage.CASE_SCENARIO_1]: {
-    title: "责任认定与费用分摊方案选择",
-    narrative: "【场景描述】\n您承接A供应链公司委托：通过“渝新欧”铁路将丹麦燕麦片运至重庆。行至波兰口岸时，因客户仅能提供卫生证书，缺失植物检疫证书正本被扣。协调退运至荷兰后转空运，产生空运费5.8万、仓储费6200、处置费3539元。客户要求退还剩余保证金并索赔额外费用，但双方仍有大额合作前景。\n\n你需要决定如何处理这笔费用争议：",
+    title: "责任认定与费用分摊",
+    narrative: "【场景描述】\n您承接A供应链公司委托：通过“渝新欧”铁路将燕麦片运至波兰。因客户仅能提供卫生证书，缺失植物检疫证书被扣。转空运产生额外费用7万元。客户要求赔偿，但双方有大额合作前景。\n\n你需要决定如何处理争议：",
     choices: [
       {
         id: "A",
-        text: "拒绝退款，主张全部额外费用由客户承担",
-        outcome: { feedback: "虽然维护了公司短期利益，但客户立即终止合作，导致佣金损失逾10万元，信用评级下降。", statsDelta: delta(-30, 10, -10) }
+        text: "拒绝退款，按合同办事",
+        outcome: { feedback: "虽然维护了公司利益，但客户立即终止合作，长期佣金损失严重。", statsDelta: delta(-30, 10, -10) }
       },
       {
         id: "B",
-        text: "退还剩余保证金并赔偿额外费用，自行承担损失",
-        outcome: { feedback: "你承担了所有责任。短期亏损32,400元，但保留了客户，后续可挽回损失。", statsDelta: delta(20, -20, -10) }
+        text: "全额赔偿，自行承担损失",
+        outcome: { feedback: "虽保留了客户，但你个人和分公司需承担巨额亏损，KPI归零。", statsDelta: delta(20, -30, -20) }
       },
       {
         id: "C",
-        text: "与客户协商：扣除铁路运费+50%额外费用，退还部分保证金",
-        outcome: { feedback: "完美的折中方案。双方分摊损失，客户满意度保留80%，长期合作得以维持。", statsDelta: delta(10, 5, 5) }
+        text: "协商分摊：免除代理费，分担部分杂费",
+        outcome: { feedback: "完美的折中。双方分摊损失，客户看到你的诚意，合作得以维持。", statsDelta: delta(10, 5, 5) }
       }
     ]
   },
   [GameStage.CASE_SCENARIO_2]: {
-    title: "保证金退还金额的核算",
-    narrative: "经过初步沟通，客户同意了协商方案。现在需要核算具体的退款金额。客户已支付81,354元保证金，铁路运费25,748.6元，额外杂费总计约6.7万元。\n你需要给出一个精确的计算结果来说服财务和客户：",
+    title: "退款金额核算",
+    narrative: "客户同意协商。需核算退款。客户已付8万保证金，铁路运费2.5万，杂费7万。如何给出最终数字？",
     choices: [
       {
         id: "A",
-        text: "简单粗暴：保证金 - 铁路运费 - 全部杂费",
-        outcome: { feedback: "客户觉得你没有诚意，这和让客户全赔没区别。", statsDelta: delta(-10, 5, 0) }
+        text: "简单扣除所有发生费用",
+        outcome: { feedback: "客户觉得你在斤斤计较，谈判陷入僵局。", statsDelta: delta(-10, 5, 0) }
       },
       {
         id: "B",
-        text: "退还 22,805.4 元 (扣除运费及50%额外费用)",
-        outcome: { feedback: "计算精准，有理有据。体现了双方共担风险的精神。", statsDelta: delta(10, 5, 5) }
+        text: "退还保证金 - 运费 - 50%杂费",
+        outcome: { feedback: "计算精准，体现共担风险精神，客户签字确认。", statsDelta: delta(10, 5, 5) }
       },
       {
         id: "C",
-        text: "全额退还保证金，费用以后再说",
-        outcome: { feedback: "财务部拒绝了你的申请。公司不可能在没有结清费用的情况下退款。", statsDelta: delta(0, -10, -5) }
+        text: "全额退还保证金",
+        outcome: { feedback: "财务部拒绝审批，你被骂了一顿。", statsDelta: delta(0, -10, -5) }
       }
     ]
   },
   [GameStage.CASE_SCENARIO_3]: {
-    title: "长期合作关系的维护",
-    narrative: "危机暂时解除，货物最终通过空运抵达重庆。为了修复这段波折带来的关系裂痕，你打算：",
+    title: "关系修复",
+    narrative: "危机解除。为修复关系，你打算：",
     choices: [
       {
         id: "A",
-        text: "不再主动联系，避免尴尬",
-        outcome: { feedback: "客户关系逐渐冷淡，最终流失。", statsDelta: delta(-10, 0, -5) }
+        text: "冷处理，避免尴尬",
+        outcome: { feedback: "客户关系逐渐冷淡。", statsDelta: delta(-10, 0, -5) }
       },
       {
         id: "B",
-        text: "承诺后续合作给予 5% 佣金优惠",
-        outcome: { feedback: "既给了面子又给了里子。客户感受到了诚意，追加了新订单。", statsDelta: delta(15, -5, 10) }
+        text: "承诺后续3单给予佣金折扣",
+        outcome: { feedback: "客户感受到了诚意，追加了新订单。", statsDelta: delta(15, -5, 10) }
       },
       {
         id: "C",
-        text: "推销更贵的VIP服务以弥补亏损",
-        outcome: { feedback: "客户觉得你只想赚钱，反感倍增。", statsDelta: delta(-20, 10, 5) }
+        text: "推销VIP服务",
+        outcome: { feedback: "客户觉得你只想赚钱，反感。", statsDelta: delta(-20, 10, 5) }
+      }
+    ]
+  }
+};
+
+const CASE_2_DB: Record<string, any> = {
+  [GameStage.CASE_SCENARIO_1]: {
+    title: "紧急空运方案决策",
+    narrative: "【场景描述】\n某手机品牌新品发布在即，因屏幕供应问题，成品出厂推迟了3天。若走普通商业航班(3-4天)肯定赶不上发布会，面临巨额违约金。客户焦急万分。\n你需要立即给出方案：",
+    choices: [
+      {
+        id: "A",
+        text: "推荐商业航班直飞，赌一把时效",
+        outcome: { feedback: "舱位爆满被拉货，货物延误，客户发布会开天窗，你被起诉。", statsDelta: delta(-50, 10, -20) }
+      },
+      {
+        id: "B",
+        text: "立即联系包机 (Charter)，费用是普货的5倍",
+        outcome: { feedback: "虽然贵，但是唯一能保证时效的方案。客户毫不犹豫地接受了。", statsDelta: delta(20, -20, 20) }
+      },
+      {
+        id: "C",
+        text: "建议改为手提急件 (On Board Courier)",
+        outcome: { feedback: "几吨的货做手提？不仅成本天价，且根本操作不了。不专业。", statsDelta: delta(-10, -10, 0) }
+      }
+    ]
+  },
+  [GameStage.CASE_SCENARIO_2]: {
+    title: "地面操作协调",
+    narrative: "客户确认包机。但起飞前4小时，机场地勤表示货物包装不符合航空板型要求，需要重新打板，但这会错过起飞窗口。",
+    choices: [
+      {
+        id: "A",
+        text: "给地勤塞红包请求通融",
+        outcome: { feedback: "航空安全红线不可触碰！你被举报，面临吊销执照风险。", statsDelta: delta(-30, -10, -50) }
+      },
+      {
+        id: "B",
+        text: "紧急调派专业打包团队现场重组，并申请延误30分钟起飞",
+        outcome: { feedback: "展现了强大的现场解决能力。虽然惊险，但货物赶上了飞机。", statsDelta: delta(15, -5, 10) }
+      },
+      {
+        id: "C",
+        text: "通知客户只能改签下一班",
+        outcome: { feedback: "包机改签费用巨大，且依然误事。客户崩溃。", statsDelta: delta(-20, -10, -10) }
+      }
+    ]
+  },
+  [GameStage.CASE_SCENARIO_3]: {
+    title: "目的港清关提货",
+    narrative: "飞机落地。为了确货第一时间送达会场，你需要安排清关和派送。",
+    choices: [
+      {
+        id: "A",
+        text: "走普通报关流程",
+        outcome: { feedback: "海关排队导致货物在机场卡了一天。前面的努力白费了。", statsDelta: delta(-10, 0, 0) }
+      },
+      {
+        id: "B",
+        text: "提前申报“暂时进出口”或“ATA单证册”",
+        outcome: { feedback: "对于参展/发布会货物，这是最快的通关方式。专业！", statsDelta: delta(10, 0, 10) }
+      }
+    ]
+  }
+};
+
+const CASE_3_DB: Record<string, any> = {
+  [GameStage.CASE_SCENARIO_1]: {
+    title: "危险品识别",
+    narrative: "【场景描述】\n客户委托出口一批“电动滑板车”。发票上品名写的是“运动器材”。你注意到该产品含有大容量锂电池。客户暗示：“按普货走吧，省钱省事，以前都没查。”",
+    choices: [
+      {
+        id: "A",
+        text: "听客户的，按普货订舱",
+        outcome: { feedback: "这是严重违规！锂电池属于9类危险品。一旦起火，你将承担刑事责任。", statsDelta: delta(-20, 20, -50) }
+      },
+      {
+        id: "B",
+        text: "坚决拒绝，要求按 DG (危险品) 申报",
+        outcome: { feedback: "坚持原则。虽然客户嫌麻烦，但你规避了灭顶之灾。", statsDelta: delta(5, -10, 0) }
+      },
+      {
+        id: "C",
+        text: "让客户提供 MSDS 和 UN38.3 鉴定报告再决定",
+        outcome: { feedback: "最专业的做法。先看报告确认类别，再按规操作。", statsDelta: delta(10, 0, 5) }
+      }
+    ]
+  },
+  [GameStage.CASE_SCENARIO_2]: {
+    title: "海事申报与包装",
+    narrative: "经鉴定，该电池功率超过100Wh，必须走危险品通道。船公司要求提供危包证，但工厂办不下来。",
+    choices: [
+      {
+        id: "A",
+        text: "找黄牛买一份假的危包证",
+        outcome: { feedback: "海事局联网核查，假证秒被识破。货被扣，人被抓。", statsDelta: delta(-50, 0, -50) }
+      },
+      {
+        id: "B",
+        text: "建议更换为符合危规的包装，并补办正规手续",
+        outcome: { feedback: "虽然船期推迟了一周，但手续合规，货物安全出运。", statsDelta: delta(10, -5, 5) }
+      },
+      {
+        id: "C",
+        text: "改走香港渠道，那边查得松",
+        outcome: { feedback: "虽然也是一种路径（香港实施不同规则），但增加了陆运到香港的风险和成本。", statsDelta: delta(0, -10, 5) }
+      }
+    ]
+  },
+  [GameStage.CASE_SCENARIO_3]: {
+    title: "长期合规建议",
+    narrative: "货物安全抵达。客户抱怨这次太折腾，想换个不这么死板的货代。",
+    choices: [
+      {
+        id: "A",
+        text: "为了留住客户，承诺下次想办法“灵活操作”",
+        outcome: { feedback: "你在给自己埋雷。早晚出事。", statsDelta: delta(-10, 0, 0) }
+      },
+      {
+        id: "B",
+        text: "给客户发一份《海运危险品事故案例集锦》",
+        outcome: { feedback: "触目惊心的案例教育了客户。他们意识到你是为了他们好。", statsDelta: delta(15, 0, 5) }
+      }
+    ]
+  }
+};
+
+const CASE_4_DB: Record<string, any> = {
+  [GameStage.CASE_SCENARIO_1]: {
+    title: "事故定责初判",
+    narrative: "【场景描述】\n一柜冷冻烤鳗运抵日本，收货人投诉货物化冻变质，温度记录仪显示中间有10小时温度飙升。船公司说码头没插电，码头说车队送晚了。你需要初步判断。",
+    choices: [
+      {
+        id: "A",
+        text: "直接拒绝赔付，让客户自己找保险",
+        outcome: { feedback: "客户震怒。虽然保险会赔，但你作为物流管家的失职让人失望。", statsDelta: delta(-20, 0, 0) }
+      },
+      {
+        id: "B",
+        text: "立即提取温度记录仪数据，对照各环节交接单 (EIR)",
+        outcome: { feedback: "用数据说话。找出了断链的具体时间点。", statsDelta: delta(10, 0, 0) }
+      },
+      {
+        id: "C",
+        text: "先承诺公司全额赔偿",
+        outcome: { feedback: "货值高达百万，公司赔不起。你太冲动了。", statsDelta: delta(5, -50, -20) }
+      }
+    ]
+  },
+  [GameStage.CASE_SCENARIO_2]: {
+    title: "证据链分析",
+    narrative: "数据显示：集装箱进码头后3小时温度开始上升，持续8小时后恢复。查码头记录，该时段插座故障跳闸。",
+    choices: [
+      {
+        id: "A",
+        text: "向码头提出正式索赔",
+        outcome: { feedback: "码头通常有免责条款或赔偿限额，但这是必须走的流程。", statsDelta: delta(5, 5, 0) }
+      },
+      {
+        id: "B",
+        text: "协助客户向保险公司报案，提供码头故障证明",
+        outcome: { feedback: "最快挽回客户损失的办法。保险公司代位求偿比你更专业。", statsDelta: delta(10, 0, 5) }
+      }
+    ]
+  },
+  [GameStage.CASE_SCENARIO_3]: {
+    title: "残值处理",
+    narrative: "货物虽化冻但未完全腐坏。日本收货人拒收。这批货怎么处理？",
+    choices: [
+      {
+        id: "A",
+        text: "运回国内",
+        outcome: { feedback: "运回运费+进口税可能超过货值，得不偿失。", statsDelta: delta(-5, -10, 0) }
+      },
+      {
+        id: "B",
+        text: "在当地低价拍卖或销毁",
+        outcome: { feedback: "止损的最佳方案。减少了滞港费和堆存费。", statsDelta: delta(5, 5, 0) }
       }
     ]
   }
@@ -150,64 +375,283 @@ const CASE_1_DB: Record<string, any> = {
 const CASE_5_DB: Record<string, any> = {
   [GameStage.CASE_SCENARIO_1]: {
     title: "运输路线调整",
-    narrative: "【场景描述】\n你为E公司安排宁波至洛杉矶的服装运输（CIF），原定6月10日开航。开航前3天突发通知：宁波港因台风预计拥堵7天。客户合同约定“延迟交货每日罚0.5%货款”。\n你需要做出路线决策：",
+    narrative: "【场景描述】\n宁波港因台风拥堵，预计晚开7天。客户合同约定迟一天罚款1万。你需要做出路线决策：",
     choices: [
       {
         id: "A",
-        text: "等待原船期 (交货延迟7天，面临违约金)",
-        outcome: { feedback: "客户被罚扣除1万元违约金，非常不满，后续订单减少30%。", statsDelta: delta(-20, 5, -10) }
+        text: "等待原船期",
+        outcome: { feedback: "客户被罚7万，订单减少。", statsDelta: delta(-20, 5, -10) }
       },
       {
         id: "B",
-        text: "转至上海港装船 (陆运+3000，舱位+5000，可按时)",
-        outcome: { feedback: "虽然增加了8000元成本，但保住了信誉和后续订单，是最优解。", statsDelta: delta(20, -10, 5) }
+        text: "转至上海港装船 (陆运+3000)",
+        outcome: { feedback: "虽然有额外费用，但保住了信誉，最优解。", statsDelta: delta(20, -10, 5) }
       },
       {
         id: "C",
-        text: "拆分货物：30%空运 + 70%海运",
-        outcome: { feedback: "空运成本太高（额外2万），虽然解决了急货，但整体利润被严重压缩。", statsDelta: delta(10, -20, -5) }
+        text: "海陆空联运",
+        outcome: { feedback: "操作过于复杂，风险不可控。", statsDelta: delta(-5, -5, 0) }
       }
     ]
   },
   [GameStage.CASE_SCENARIO_2]: {
-    title: "违约金与额外成本平衡",
-    narrative: "假如你选择了转港方案，产生了8000元额外费用。这笔钱该由谁出？",
+    title: "额外费用分摊",
+    narrative: "转港产生了额外费用。这笔钱该由谁出？",
     choices: [
       {
         id: "A",
-        text: "全部由客户承担，毕竟台风是不可抗力",
-        outcome: { feedback: "客户虽然无奈接受，但觉得你没有担当，服务体验差。", statsDelta: delta(-5, 10, 0) }
+        text: "全部由客户承担",
+        outcome: { feedback: "客户无奈接受，但体验差。", statsDelta: delta(-5, 10, 0) }
       },
       {
         id: "B",
-        text: "向客户申请分摊 3,000 元陆运费，公司承担舱位差价",
-        outcome: { feedback: "合情合理。客户感激你承担了大头，信用评级提升。", statsDelta: delta(15, -5, 5) }
+        text: "申请分摊：客户出陆运，公司补差价",
+        outcome: { feedback: "合情合理。信用提升。", statsDelta: delta(15, -5, 5) }
       },
       {
         id: "C",
-        text: "全部由自己/公司承担，不敢告诉客户",
-        outcome: { feedback: "虽然客户满意，但你这个月白干了。成本控制不及格。", statsDelta: delta(5, -20, -10) }
+        text: "自己承担所有",
+        outcome: { feedback: "成本控制不及格。", statsDelta: delta(5, -20, -10) }
       }
     ]
   },
   [GameStage.CASE_SCENARIO_3]: {
-    title: "后续服务与复盘",
-    narrative: "货物顺利按时发出。事后为了防止类似情况：",
+    title: "后续防范",
+    narrative: "为防止类似情况，你建议：",
     choices: [
       {
         id: "A",
-        text: "建议客户购买“运输延误险”",
-        outcome: { feedback: "专业的增值建议，客户觉得你很为他们着想。", statsDelta: delta(10, 0, 5) }
+        text: "购买运输延误险",
+        outcome: { feedback: "专业的增值建议。", statsDelta: delta(10, 0, 5) }
       },
       {
         id: "B",
-        text: "以后只推荐大船东，不走廉价航线",
-        outcome: { feedback: "虽然大船东由于天气也可能延误，但整体服务更好。", statsDelta: delta(5, -5, 0) }
+        text: "只走大船东",
+        outcome: { feedback: "大船东也怕台风。", statsDelta: delta(0, 0, 0) }
+      }
+    ]
+  }
+};
+
+const CASE_6_DB: Record<string, any> = {
+  [GameStage.CASE_SCENARIO_1]: {
+    title: "倒签提单请求",
+    narrative: "【场景描述】\n信用证 (L/C) 要求最晚装船期是10月30日，但船实际11月2日才开。工厂为了能顺利结汇，请求你签发10月30日的提单 (倒签)。",
+    choices: [
+      {
+        id: "A",
+        text: "坚决拒绝，如实签发",
+        outcome: { feedback: "工厂因‘不符点’被银行拒付，损失惨重，骂你死板。但你守住了法律底线。", statsDelta: delta(-10, 0, 0) }
+      },
+      {
+        id: "B",
+        text: "同意倒签，前提是工厂出具保函",
+        outcome: { feedback: "倒签提单是欺诈行为！保函在法律上无效。一旦买家发现行情不好借机拒付，你和公司需全额赔偿。", statsDelta: delta(10, 0, -50) }
       },
       {
         id: "C",
-        text: "不做任何改变，台风只是运气不好",
-        outcome: { feedback: "缺乏风险意识。", statsDelta: delta(-5, 0, 0) }
+        text: "建议客户联系买家修改信用证效期",
+        outcome: { feedback: "虽然花点改证费和时间，但是唯一合规合法的解决路径。", statsDelta: delta(5, -5, 5) }
+      }
+    ]
+  },
+  [GameStage.CASE_SCENARIO_2]: {
+    title: "改证沟通",
+    narrative: "客户听取建议去联系买家，但买家迟迟不回邮件。船快开了，舱单需要截止。",
+    choices: [
+      {
+        id: "A",
+        text: "先按实际日期截单，等改证下来再说",
+        outcome: { feedback: "稳妥。即使改证不成功，顶多是信用证转托收，不会构成欺诈。", statsDelta: delta(5, 0, 0) }
+      },
+      {
+        id: "B",
+        text: "先按倒签日期截单，赌买家会同意",
+        outcome: { feedback: "你在拿职业生涯赌博。", statsDelta: delta(-10, 0, -20) }
+      }
+    ]
+  },
+  [GameStage.CASE_SCENARIO_3]: {
+    title: "单证审核",
+    narrative: "最终买家同意延期。在制作提单时，你发现品名和信用证上有一个字母的差异。",
+    choices: [
+      {
+        id: "A",
+        text: "严格按照信用证照抄，哪怕是错别字",
+        outcome: { feedback: "正确！信用证遵循‘单单一致’原则，必须每一个字母都一样。", statsDelta: delta(5, 0, 5) }
+      },
+      {
+        id: "B",
+        text: "帮忙纠正错别字",
+        outcome: { feedback: "好心办坏事。纠正了反而成了‘不符点’。", statsDelta: delta(-5, 0, 0) }
+      }
+    ]
+  }
+};
+
+const CASE_7_DB: Record<string, any> = {
+  [GameStage.CASE_SCENARIO_1]: {
+    title: "特种柜方案选择",
+    narrative: "【场景描述】\n客户要运一台大型锅炉，尺寸超高超宽。无法装入普通集装箱。你需要制定方案。",
+    choices: [
+      {
+        id: "A",
+        text: "使用 40FR (框架柜/Flat Rack)",
+        outcome: { feedback: "适合超宽超高货物。正解。", statsDelta: delta(5, 0, 5) }
+      },
+      {
+        id: "B",
+        text: "使用 40OT (开顶柜/Open Top)",
+        outcome: { feedback: "OT柜只适合超高，不适合超宽。这台锅炉装进去会卡住。", statsDelta: delta(-10, 0, 0) }
+      },
+      {
+        id: "C",
+        text: "建议走散杂船 (Break Bulk)",
+        outcome: { feedback: "如果货物极其巨大，散杂船是选项。但对于单一设备，班轮特种柜通常频率更稳。", statsDelta: delta(0, 0, 0) }
+      }
+    ]
+  },
+  [GameStage.CASE_SCENARIO_2]: {
+    title: "绑扎与加固",
+    narrative: "框架柜的绑扎至关重要。船公司要求出具第三方绑扎证明。",
+    choices: [
+      {
+        id: "A",
+        text: "让拖车司机随便绑一下",
+        outcome: { feedback: "极度危险！海上风浪会导致货物移位甚至坠海。", statsDelta: delta(-20, 0, -20) }
+      },
+      {
+        id: "B",
+        text: "聘请专业绑扎公司，使用钢丝绳和花篮螺丝",
+        outcome: { feedback: "专业。确保了航行安全，船公司顺利放舱。", statsDelta: delta(10, -5, 5) }
+      }
+    ]
+  },
+  [GameStage.CASE_SCENARIO_3]: {
+    title: "道路运输许可",
+    narrative: "货物抵达目的港。由于超宽，普通卡车无法上路配送。",
+    choices: [
+      {
+        id: "A",
+        text: "不管那么多，趁半夜偷偷运",
+        outcome: { feedback: "在国外被路政抓到罚款是天价，且可能被扣车。", statsDelta: delta(-30, 0, -10) }
+      },
+      {
+        id: "B",
+        text: "申请超限运输许可证，并安排引导车",
+        outcome: { feedback: "合规操作。虽然费用高、审批慢，但是唯一途径。", statsDelta: delta(5, -5, 5) }
+      }
+    ]
+  }
+};
+
+const CASE_8_DB: Record<string, any> = {
+  [GameStage.CASE_SCENARIO_1]: {
+    title: "海关侵权嫌疑",
+    narrative: "【场景描述】\n海关查验通知：你代理出口的休闲鞋上有类似‘耐克’的钩子图案，涉嫌侵犯知识产权。货物被扣留。客户坚称是自己设计的。",
+    choices: [
+      {
+        id: "A",
+        text: "立即通知客户，要求提供品牌授权书或不侵权证明",
+        outcome: { feedback: "标准流程。必须先确认法律事实。", statsDelta: delta(5, 0, 0) }
+      },
+      {
+        id: "B",
+        text: "帮客户辩解说这只是装饰花纹",
+        outcome: { feedback: "海关只认法律文书，口头辩解无用。", statsDelta: delta(-5, 0, 0) }
+      },
+      {
+        id: "C",
+        text: "弃货不管了",
+        outcome: { feedback: "作为申报单位，你可能要承担连带罚款责任。", statsDelta: delta(-10, 0, -10) }
+      }
+    ]
+  },
+  [GameStage.CASE_SCENARIO_2]: {
+    title: "权利人确权",
+    narrative: "海关联系了权利人（品牌方）。品牌方确认侵权并申请海关扣货。客户慌了，问能不能通过‘关系’捞出来。",
+    choices: [
+      {
+        id: "A",
+        text: "严词拒绝，告知必须走法律程序",
+        outcome: { feedback: "正确。此时任何灰色操作都会把你拖下水。", statsDelta: delta(5, 0, 0) }
+      },
+      {
+        id: "B",
+        text: "尝试贿赂海关查验科",
+        outcome: { feedback: "违法行为！", statsDelta: delta(-50, 0, -50) }
+      }
+    ]
+  },
+  [GameStage.CASE_SCENARIO_3]: {
+    title: "处罚与善后",
+    narrative: "货物最终被没收销毁，海关开出罚单。客户拒付罚款和仓租柜租。",
+    choices: [
+      {
+        id: "A",
+        text: "向海关申请减免",
+        outcome: { feedback: "可以尝试，但概率不大。", statsDelta: delta(0, 0, 0) }
+      },
+      {
+        id: "B",
+        text: "依据《货运代理协议》起诉客户追偿",
+        outcome: { feedback: "如果合同签署完善，这是维护公司权益的最后手段。", statsDelta: delta(0, 0, 5) }
+      }
+    ]
+  }
+};
+
+const CASE_9_DB: Record<string, any> = {
+  [GameStage.CASE_SCENARIO_1]: {
+    title: "DDP 进口商抬头 (IOR)",
+    narrative: "【场景描述】\n客户发货去美国亚马逊 FBA 仓。做 DDP (完税后交货)。客户没有美国公司，想借用你们的美国代理公司作为‘进口商’ (IOR) 进行清关。",
+    choices: [
+      {
+        id: "A",
+        text: "同意借用，收一笔手续费",
+        outcome: { feedback: "风险极大！如果客户货物有质量问题或侵权，IOR要承担全部法律责任。", statsDelta: delta(-10, 10, -20) }
+      },
+      {
+        id: "B",
+        text: "拒绝，要求客户购买‘进口商Bond’",
+        outcome: { feedback: "正规操作。虽然客户要多花钱买Bond，但责任划分清晰。", statsDelta: delta(5, -5, 5) }
+      },
+      {
+        id: "C",
+        text: "建议低申报货值来避税",
+        outcome: { feedback: "美国海关对电商查验极严，低申报会被处以数倍罚款。", statsDelta: delta(-10, 5, -10) }
+      }
+    ]
+  },
+  [GameStage.CASE_SCENARIO_2]: {
+    title: "关税支付",
+    narrative: "美国加征关税，税率从10%涨到了25%。客户觉得税太高，想弃货。",
+    choices: [
+      {
+        id: "A",
+        text: "告知弃货也会产生销毁费，且会影响信誉",
+        outcome: { feedback: "陈清利害，迫使客户面对现实。", statsDelta: delta(5, 0, 0) }
+      },
+      {
+        id: "B",
+        text: "帮客户垫付关税",
+        outcome: { feedback: "千万别！很多货代死于帮客户垫税后客户跑路。", statsDelta: delta(5, -30, -20) }
+      }
+    ]
+  },
+  [GameStage.CASE_SCENARIO_3]: {
+    title: "FBA 送仓预约",
+    narrative: "货物清关放行。亚马逊仓库爆仓，预约不到送货时间。免租期快到了。",
+    choices: [
+      {
+        id: "A",
+        text: "不管预约，直接送过去碰运气",
+        outcome: { feedback: "亚马逊会直接拒收！产生高额退货运费。", statsDelta: delta(-20, -10, 0) }
+      },
+      {
+        id: "B",
+        text: "安排海外仓中转暂存，等待预约",
+        outcome: { feedback: "虽然有仓储费，但这是唯一可行的方案。", statsDelta: delta(10, -5, 5) }
       }
     ]
   }
@@ -216,43 +660,38 @@ const CASE_5_DB: Record<string, any> = {
 const CASE_10_DB: Record<string, any> = {
   [GameStage.CASE_SCENARIO_1]: {
     title: "进口申报策略",
-    narrative: "【场景描述】\n上海M公司从德国进口精密仪器（货值约500万），申报价格为CIF上海450万。海关认为价格“明显偏低”，可能涉及低报漏税。\n现在需要提交申报，你会：",
+    narrative: "【场景描述】\n上海M公司从德国进口精密仪器，申报价格CIF 450万。海关认为价格偏低，可能涉及漏税。现在需要申报：",
     choices: [
       {
         id: "A",
-        text: "按合同价格申报，不准备证明材料",
-        outcome: { feedback: "被海关质疑的概率极高，一旦进入估价程序会非常麻烦。", statsDelta: delta(-10, 0, 0) }
+        text: "按合同价格申报，不准备材料",
+        outcome: { feedback: "极大概率被质疑，进入估价程序会非常麻烦。", statsDelta: delta(-10, 0, 0) }
       },
       {
         id: "B",
-        text: "按合同申报，并准备完整的价格证明（发票、付汇凭证）",
-        outcome: { feedback: "标准且正确的做法。有理有据，身正不怕影子斜。", statsDelta: delta(10, 5, 0) }
+        text: "准备完整的价格证明（发票、付汇凭证）",
+        outcome: { feedback: "标准做法。有理有据，身正不怕影子斜。", statsDelta: delta(10, 5, 0) }
       },
       {
         id: "C",
-        text: "申报前先咨询海关估价部门，确认价格是否合理",
-        outcome: { feedback: "最稳妥的做法，也就是“预裁定”或提前沟通，避免后续被动。", statsDelta: delta(15, 0, 5) }
+        text: "申请价格预裁定",
+        outcome: { feedback: "最稳妥的做法，提前沟通，避免后续被动。", statsDelta: delta(15, 0, 5) }
       }
     ]
   },
   [GameStage.CASE_SCENARIO_2]: {
     title: "海关质疑应对",
-    narrative: "海关发出了《价格质疑通知书》。要求进一步解释为何价格低于市场价。",
+    narrative: "海关发出《价格质疑通知书》。要求解释为何低于市场价。",
     choices: [
       {
         id: "A",
-        text: "不配合海关调查，拒绝提供补充材料",
-        outcome: { feedback: "大忌！这会导致海关直接按市场高价核定，税款大增。", statsDelta: delta(-20, -20, 0) }
+        text: "拒绝提供补充材料",
+        outcome: { feedback: "大忌！海关将直接按市场高价核定。", statsDelta: delta(-20, -20, 0) }
       },
       {
         id: "B",
-        text: "提供完整的价格证明 + 专业评估报告 + 解释（如旧款促销）",
-        outcome: { feedback: "非常专业。海关接受解释的概率很大。", statsDelta: delta(10, 5, 5) }
-      },
-      {
-        id: "C",
-        text: "找关系试图“搞定”",
-        outcome: { feedback: "违规且高风险，可能导致企业被降级稽查。", statsDelta: delta(-30, -10, -10) }
+        text: "提供证明 + 解释（如旧款促销）",
+        outcome: { feedback: "专业。海关接受解释的概率很大。", statsDelta: delta(10, 5, 5) }
       }
     ]
   },
@@ -262,39 +701,29 @@ const CASE_10_DB: Record<string, any> = {
     choices: [
       {
         id: "A",
-        text: "按申报价格计算，不考虑海关估价风险",
+        text: "按申报价格计算，忽略风险",
         outcome: { feedback: "过于乐观，一旦补税，客户资金链可能断裂。", statsDelta: delta(-10, -5, 0) }
       },
       {
         id: "B",
-        text: "预估可能的海关估价，建议客户预留税费准备金",
-        outcome: { feedback: "专业的财务建议，帮助客户规避了资金风险。", statsDelta: delta(10, 5, 0) }
-      },
-      {
-        id: "C",
-        text: "精确计算各种税费（关税、增值税、滞纳金）",
-        outcome: { feedback: "精准的专业能力体现。", statsDelta: delta(10, 5, 0) }
+        text: "建议客户缴纳保证金先放行",
+        outcome: { feedback: "既不耽误使用货物，又争取了磋商时间。高明。", statsDelta: delta(10, 5, 5) }
       }
     ]
   },
   [GameStage.CASE_SCENARIO_4]: {
     title: "行政复议决策",
-    narrative: "海关最终核定完税价格为680万（原申报450万），要求补税。客户不服。",
+    narrative: "海关核定完税价格为680万。客户不服。",
     choices: [
       {
         id: "A",
-        text: "放弃复议，直接缴纳差额",
-        outcome: { feedback: "虽然省事，但客户损失了大量资金。", statsDelta: delta(-5, -10, 0) }
+        text: "放弃复议，交钱了事",
+        outcome: { feedback: "客户损失资金。", statsDelta: delta(-5, -10, 0) }
       },
       {
         id: "B",
-        text: "申请行政复议，但不提供新证据",
-        outcome: { feedback: "没有新证据的复议基本会被维持原判，浪费时间。", statsDelta: delta(0, -5, 0) }
-      },
-      {
-        id: "C",
-        text: "申请行政复议 + 提供新的价格证明 + 聘请专业律师",
-        outcome: { feedback: "这是唯一的翻盘机会，虽然成本高，但展现了你的专业价值。", statsDelta: delta(10, -5, 10) }
+        text: "申请行政复议 + 聘请专业律师",
+        outcome: { feedback: "唯一的翻盘机会，展现专业价值。", statsDelta: delta(10, -5, 10) }
       }
     ]
   }
