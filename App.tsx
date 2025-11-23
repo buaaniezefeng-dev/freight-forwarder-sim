@@ -6,7 +6,7 @@ import { generateScenario } from './services/geminiService';
 import { StatsDisplay } from './components/StatsDisplay';
 import { GameScene } from './components/GameScene';
 import { SummaryScreen } from './components/SummaryScreen';
-import { Loader2, Ship, PlayCircle, BookOpen, Trophy } from 'lucide-react';
+import { Loader2, Ship, PlayCircle, AlertTriangle, BookOpen, Trophy } from 'lucide-react';
 
 const App: React.FC = () => {
   const [gameState, setGameState] = useState<GameState>({
@@ -46,12 +46,15 @@ const App: React.FC = () => {
       if (gameState.currentScenario && !gameState.isLoading) return;
 
       try {
-        const previousChoiceText = gameState.log.length > 0 ? gameState.log[gameState.log.length - 1].choice : null;
+        const lastLogEntry = gameState.log.length > 0 ? gameState.log[gameState.log.length - 1] : null;
+        const previousChoiceText = lastLogEntry ? lastLogEntry.choice : null;
+        const previousStage = lastLogEntry ? (lastLogEntry.stage as GameStage) : null;
         
         const response = await generateScenario(
           gameState.stage,
           gameState.stats,
           previousChoiceText,
+          previousStage,
           gameState.history,
           gameState.currentCaseId
         );

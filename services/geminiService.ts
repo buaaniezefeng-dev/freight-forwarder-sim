@@ -8,6 +8,7 @@ export const generateScenario = async (
   currentStage: GameStage,
   _currentStats: PlayerStats,
   previousChoiceText: string | null,
+  previousStage: GameStage | null,
   _historySummary: string[],
   currentCaseId: string | null
 ): Promise<ScenarioResponse> => {
@@ -24,7 +25,24 @@ export const generateScenario = async (
     };
   }
 
-  // 1. Get the content for the requested stage based on Case ID
+  // 1. Calculate impact of Previous Choice
+  // We look up what the player chose in the PREVIOUS stage to determine the stats delta and feedback
+  // that should be applied/shown at the start of THIS stage.
+  let feedback = "";
+  let statsDelta = { trust: 0, costEfficiency: 0, commission: 0 };
+
+  if (previousStage && previousChoiceText) {
+      const prevStageData = getScenarioContent(currentCaseId, previousStage);
+      if (prevStageData && prevStageData.choices) {
+          const selectedChoice = prevStageData.choices.find((c: any) => c.text === previousChoiceText);
+          if (selectedChoice && selectedChoice.outcome) {
+              feedback = selectedChoice.outcome.feedback || "";
+              statsDelta = selectedChoice.outcome.statsDelta || statsDelta;
+          }
+      }
+  }
+
+  // 2. Get the content for the requested (current) stage based on Case ID
   const stageData = getScenarioContent(currentCaseId, currentStage);
 
   if (!stageData) {
@@ -36,17 +54,6 @@ export const generateScenario = async (
     };
   }
 
-  // 2. Calculate impact of Previous Choice
-  // In this refactor, we are not dynamically calculating feedback from the previous choice
-  // in this function for simplicity. 
-  // The game flow logic in App.tsx handles the progression.
-  // Ideally, we would look up the 'outcome' of 'previousChoiceText' here.
-  
-  if (previousChoiceText) {
-    // Placeholder for future implementation of looking up specific feedback
-    // based on the previous choice text.
-  }
-
   return {
     title: stageData.title,
     narrative: stageData.narrative,
@@ -54,8 +61,8 @@ export const generateScenario = async (
       id: c.id,
       text: c.text
     })),
-    feedback: "", // Simplified for refactor
-    statsDelta: { trust: 0, costEfficiency: 0, commission: 0 } // Simplified
+    feedback: feedback,
+    statsDelta: statsDelta
   };
 };
 
