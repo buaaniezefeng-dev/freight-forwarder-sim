@@ -71,23 +71,23 @@ export const generateSummary = async (_log: { stage: string; choice: string; res
     
     const totalScore = Math.round((finalStats.trust + finalStats.costEfficiency + finalStats.commission) / 3);
     
-    let grade = 'F';
-    if (totalScore > 90) grade = 'S';
-    else if (totalScore > 80) grade = 'A';
-    else if (totalScore > 70) grade = 'B';
-    else if (totalScore > 60) grade = 'C';
+    // Adjusted Grading Scale: Worst is C, Medium is B, Good is A, Excellent is S
+    let grade = 'C';
+    if (totalScore >= 90) grade = 'S';
+    else if (totalScore >= 80) grade = 'A';
+    else if (totalScore >= 60) grade = 'B';
+    // Else stays C (< 60)
 
     let comment = "";
-    if (grade === 'S') comment = "完美的货代操作！你精准平衡了各方利益，展现了极高的专业素养。客户将成为你的忠实伙伴。";
-    else if (grade === 'A') comment = "非常优秀的操作。虽然有细微瑕疵，但整体流程把控得当，是一名值得信赖的高级业务员。";
-    else if (grade === 'B') comment = "表现合格。能完成基本运输任务，但在成本控制或风险规避上还有提升空间。";
-    else if (grade === 'C') comment = "勉强完成任务。过程中存在不少风险点，客户满意度一般，需要加强专业知识学习。";
-    else comment = "操作彻底失败。你的决策导致了严重的后果，可能面临索赔或客户流失。请重新复盘学习。";
+    if (grade === 'S') comment = "【S级评价】完美的货代操作！你精准平衡了各方利益，展现了极高的专业素养。客户将成为你的忠实伙伴，公司视你为核心骨干。";
+    else if (grade === 'A') comment = "【A级评价】非常优秀的操作。虽然有细微瑕疵，但整体流程把控得当，是一名值得信赖的高级业务员。";
+    else if (grade === 'B') comment = "【B级评价】表现中规中矩。能完成基本运输任务，但在成本控制或风险规避上还有提升空间，建议多关注细节。";
+    else comment = "【C级评价】操作存在明显短板。虽然完成了流程，但过程中风险点较多，客户满意度一般或成本过高。需要重新复盘学习基础知识。";
 
     // Add specific advice based on lowest stat
-    if (finalStats.trust < 50) comment += "\n\n特别建议：你的客户信用度过低。在货代行业，诚信是立身之本，不要为了短期利益牺牲服务质量。";
-    else if (finalStats.costEfficiency < 50) comment += "\n\n特别建议：你的成本控制能力较弱。需要更熟悉市场价格和物流方案优化，帮客户省钱就是帮自己赚钱。";
-    else if (finalStats.commission < 50) comment += "\n\n特别建议：你的盈利能力不足。虽然服务好了客户，但公司也需要生存。在合规的前提下学会合理定价。";
+    if (finalStats.trust < 60) comment += "\n\n特别建议：你的【客户信用度】偏低。在货代行业，诚信是立身之本，不要为了短期利益牺牲服务质量。";
+    else if (finalStats.costEfficiency < 60) comment += "\n\n特别建议：你的【成本控制】能力较弱。需要更熟悉市场价格和物流方案优化，帮客户省钱就是帮自己赚钱。";
+    else if (finalStats.commission < 60) comment += "\n\n特别建议：你的【个人盈利】能力不足。虽然服务好了客户，但公司也需要生存。在合规的前提下学会合理定价。";
 
     return comment;
 }
