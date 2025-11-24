@@ -51,6 +51,7 @@ export const GameScene: React.FC<GameSceneProps> = ({ scenario, onChoiceSelected
         <div className="p-6 md:p-8 min-h-[160px]">
           <div className="text-slate-600 text-lg leading-relaxed font-medium">
             <TypewriterText 
+              key={scenario.title} // Forces component reset when scenario changes
               text={scenario.narrative} 
               speed={10} 
               onComplete={() => setTextComplete(true)} 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 interface TypewriterTextProps {
   text: string;
@@ -9,22 +9,30 @@ interface TypewriterTextProps {
 
 export const TypewriterText: React.FC<TypewriterTextProps> = ({ text, speed = 15, onComplete, className = "" }) => {
   const [displayedText, setDisplayedText] = useState('');
+  const onCompleteRef = useRef(onComplete);
+
+  // Keep ref updated to avoid restarting effect when onComplete function identity changes
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
   useEffect(() => {
     setDisplayedText('');
     let i = 0;
+    
     const timer = setInterval(() => {
+      // Use substring logic which is more robust than appending to previous state
       if (i < text.length) {
-        setDisplayedText((prev) => prev + text.charAt(i));
         i++;
+        setDisplayedText(text.substring(0, i));
       } else {
         clearInterval(timer);
-        if (onComplete) onComplete();
+        if (onCompleteRef.current) onCompleteRef.current();
       }
     }, speed);
 
     return () => clearInterval(timer);
-  }, [text, speed, onComplete]);
+  }, [text, speed]);
 
   return (
     <div className={className}>
